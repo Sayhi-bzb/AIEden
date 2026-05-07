@@ -1,0 +1,97 @@
+---
+title: Quick Start
+description: A short guide that demonstrates install steps, callouts, tabs, and tables.
+---
+
+This page is a starter article for onboarding developers. Replace the package name and endpoint with your product details.
+
+## Install
+
+<Tabs items={['npm', 'pnpm', 'yarn']}>
+  <Tab value="npm">
+
+```bash
+npm install @example/sdk
+```
+
+  </Tab>
+  <Tab value="pnpm">
+
+```bash
+pnpm add @example/sdk
+```
+
+  </Tab>
+  <Tab value="yarn">
+
+```bash
+yarn add @example/sdk
+```
+
+  </Tab>
+</Tabs>
+
+<Callout type="info" title="Use environment variables">
+  Store API keys outside source control and load them through your deployment environment.
+</Callout>
+
+## Make the first request
+
+<Steps>
+  <Step>
+    ### Create an API key
+
+    Generate a key from your dashboard and grant the minimum permissions required for the integration.
+  </Step>
+  <Step>
+    ### Set the key locally
+
+```bash
+EXAMPLE_API_KEY=sk_test_123
+```
+
+  </Step>
+  <Step>
+    ### Call the API
+
+```ts
+import { ExampleClient } from '@example/sdk';
+
+const client = new ExampleClient({
+  apiKey: process.env.EXAMPLE_API_KEY,
+});
+
+const projects = await client.projects.list();
+```
+
+  </Step>
+</Steps>
+
+## Configuration
+
+<TypeTable
+  type={{
+    apiKey: {
+      type: 'string',
+      description: 'Secret key used to authenticate requests.',
+      required: true,
+    },
+    baseUrl: {
+      type: 'string',
+      description: 'Custom API origin for self-hosted or preview environments.',
+      default: 'https://api.example.com',
+    },
+    timeoutMs: {
+      type: 'number',
+      description: 'Request timeout in milliseconds.',
+      default: '30000',
+    },
+  }}
+/>
+
+## Next steps
+
+<Cards>
+  <Card title="Read the API reference" description="Review endpoint shape, parameters, and response examples." href="/docs/api-reference" />
+  <Card title="Open the source" description="Inspect the upstream Fumadocs project behind this template." href="https://github.com/fuma-nama/fumadocs" />
+</Cards>

@@ -1,0 +1,69 @@
+---
+title: API Reference
+description: A compact example for documenting endpoints, parameters, and responses.
+---
+
+This page demonstrates a minimal API reference layout. Keep each endpoint focused on request shape, response shape, and the behavior users must account for.
+
+```http
+GET /v1/projects
+```
+
+Returns projects the current API key can access.
+
+<TypeTable
+  type={{
+    limit: {
+      type: 'number',
+      description: 'Maximum number of projects to return.',
+      default: '20',
+    },
+    cursor: {
+      type: 'string',
+      description: 'Pagination cursor from the previous response.',
+    },
+  }}
+/>
+
+```ts
+const response = await fetch('https://api.example.com/v1/projects?limit=10', {
+  headers: {
+    Authorization: `Bearer ${process.env.EXAMPLE_API_KEY}`,
+  },
+});
+
+const data = await response.json();
+```
+
+<Callout type="warning" title="Paginate list endpoints">
+  Production integrations should keep following cursors until no cursor is returned.
+</Callout>
+
+## Response
+
+<TypeTable
+  type={{
+    data: {
+      type: 'Project[]',
+      description: 'The projects returned for the current page.',
+      required: true,
+    },
+    nextCursor: {
+      type: 'string | null',
+      description: 'Cursor for the next page, or null when pagination is complete.',
+      required: true,
+    },
+  }}
+/>
+
+```json
+{
+  "data": [
+    {
+      "id": "proj_123",
+      "name": "Production"
+    }
+  ],
+  "nextCursor": null
+}
+```

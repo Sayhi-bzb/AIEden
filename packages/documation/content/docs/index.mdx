@@ -1,0 +1,68 @@
+---
+title: Developer Docs
+description: A minimal template for product documentation, API references, and integration guides.
+---
+
+Use this template as the starting point for technical documentation. It includes a small set of components for common developer workflows without adding a large design system.
+
+<Callout type="idea" title="Start with the reader's first task">
+  The best first page answers three questions: what the product does, how to try it, and where to go next.
+</Callout>
+
+## Quick links
+
+<Cards>
+  <Card title="Quick start" description="Install the package and make the first request." href="/docs/test" />
+  <Card title="API reference" description="Document endpoints, parameters, and response shapes." href="/docs/api-reference" />
+  <Card title="Fumadocs" description="Learn how this docs template is powered." href="https://fumadocs.dev" />
+</Cards>
+
+## What to document first
+
+<Steps>
+  <Step>
+    ### Installation
+
+    Show the shortest working setup path. Include package manager tabs when teams use different tooling.
+  </Step>
+  <Step>
+    ### First successful call
+
+    Provide one complete example that users can run without reading the full API reference.
+  </Step>
+  <Step>
+    ### Core concepts
+
+    Explain the vocabulary users need before they can make good decisions.
+  </Step>
+  <Step>
+    ### Production concerns
+
+    Cover authentication, limits, retries, observability, and deployment notes.
+  </Step>
+</Steps>
+
+## Minimal component set
+
+<TypeTable
+  type={{
+    Callout: {
+      type: 'component',
+      description: 'Highlights notes, ideas, warnings, errors, and successful outcomes.',
+      required: true,
+    },
+    Steps: {
+      type: 'component',
+      description: 'Structures installation, migration, and deployment guides.',
+      required: true,
+    },
+    Tabs: {
+      type: 'component',
+      description: 'Shows package manager, framework, or language variants.',
+    },
+    TypeTable: {
+      type: 'component',
+      description: 'Documents configuration fields, request parameters, and response properties.',
+    },
+  }}
+/>
