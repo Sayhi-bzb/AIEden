@@ -6,17 +6,29 @@ Gate is the perception-action boundary.
 
 ```text
 organism is not universe object
-<uid> is organism presence surface in universe
-gate owns organism.id <-> <uid> binding
+<uid> is presence marker, not organism
+universe stores <uid>
+gate owns binding, not meaning
 ```
 
 ## modules
 
 ```text
-command
-presence
-perception
-action
+binding/presence
+binding/session
+
+command/parse
+command/dispatch
+
+surface
+```
+
+## core map
+
+```text
+binding = who is connected
+command = how action leaves
+surface = how world returns
 ```
 
 ## boundary
@@ -25,6 +37,7 @@ action
 organism cannot directly read or write universe
 universe cannot read organism interior
 gate translates intent and projection
+gate does_not_create universe access
 ```
 
 ## loop
@@ -44,5 +57,7 @@ organism ActionIntent
 <uid> is not organism
 <uid> is not self
 <uid> is not kernel
-gate does_not_create universe access
+binding does_not_parse_command
+command does_not_bind_presence
+surface does_not_execute_action
 ```

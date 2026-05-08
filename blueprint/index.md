@@ -21,9 +21,9 @@ universe
 ## responsibility
 
 ```text
-organism: continuous life
-gate: perception-action boundary
-universe: causal world
+organism owns life
+gate owns crossing
+universe owns world truth
 ```
 
 ## loop
@@ -42,4 +42,34 @@ organism
 organism does not receive the full universe
 universe does not receive the full organism
 gate keeps both sides world-safe
+```
+
+## map
+
+```text
+organism output
+  -> gate command
+  -> organ
+  -> gate binding
+  -> universe action
+
+universe projection
+  -> gate surface
+  -> organism perception
+```
+
+```text
+projection = universe visible world
+surface = gate safe return
+perception = organism received frame
+```
+
+## not map
+
+```text
+organism is_not universe object
+gate does_not_own meaning
+universe does_not_define organism
+<uid> is_not organism
+self is_not kernel
 ```
